@@ -47,5 +47,8 @@
     "nyc": "^15.1.0",
     "sinon": "^11.1.1",
     "supertest": "^6.2.2"
+  },
+  "nodemonConfig": {
+    "legacyWatch": true
   }
 }
