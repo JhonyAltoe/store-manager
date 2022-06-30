@@ -26,5 +26,10 @@ describe('Testa a função getProductById da camada models', () => {
       const response = await models.product.getProductById(ID);
       expect(response).to.be.a('object');
     });
+
+    it('deve retornar um objeto com "id" e "name" do produto', async () => {
+      const response = await models.product.getProductById(ID);
+      expect(response).to.be.equal(paydoadProduct);
+    });
   });
 });
