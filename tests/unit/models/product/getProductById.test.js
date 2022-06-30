@@ -1,11 +1,8 @@
+const sinon = require('sinon');
 const { expect } = require('chai');
 
-const connection = () => [];
-const models = {
-  product: {
-    getProductById: () => ({}),
-  },
-};
+const { connection } = require('../../../../helpers');
+const models = require('../../../../models');
 
 describe('Testa a função getProductById da camada models', () => {
   const paydoadProduct = {
@@ -14,9 +11,20 @@ describe('Testa a função getProductById da camada models', () => {
   };
 
   describe('em caso de sucesso', () => {
-    // const ID = 2;
+    const ID = 2;
 
-    const response = models.product.getProductById();
-    expect(response).to.be.a('object');
+    before(async () => {
+      const execute = [paydoadProduct];
+      sinon.stub(connection, 'execute').resolves(execute);
+    });
+
+    after(async () => {
+      connection.execute.restore();
+    });
+
+    it('deve retornar um objeto', async () => {
+      const response = await models.product.getProductById(ID);
+      expect(response).to.be.a('object');
+    });
   });
 });
