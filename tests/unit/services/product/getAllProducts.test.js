@@ -23,8 +23,8 @@ describe('Testa a função getAllProducts da camada service', () => {
   describe('quando o retorno é bem sucedido', () => {
   
     before(async () => {
-      const execute = payloadProducts;
-      sinon.stub(models.product, 'getAllProducts').resolves(execute);
+      const ARR_PRODUCTS = payloadProducts;
+      sinon.stub(models.product, 'getAllProducts').resolves(ARR_PRODUCTS);
     });
 
     after(async () => {
