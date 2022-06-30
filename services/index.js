@@ -1,7 +1,11 @@
-const { getAllProducts } = require('./product');
+const {
+  getAllProducts,
+  getProductById,
+} = require('./product');
 
 module.exports = {
   product: {
     getAllProducts,
+    getProductById,
   },
 };
