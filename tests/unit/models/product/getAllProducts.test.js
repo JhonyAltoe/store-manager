@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const { connection } = require('../../../../helpers');
 const models = require('../../../../models');
 
-describe('Testa a função getAllProducts', () => {
+describe('Testa a função getAllProducts da camada models', () => {
   const payloadProducts = [
     {
       "id": 1,
@@ -20,16 +20,16 @@ describe('Testa a função getAllProducts', () => {
     }
   ];
 
-  before(async () => {
-    const execute = [payloadProducts];
-    sinon.stub(connection, 'execute').resolves(execute);
-  });
+  describe('quando o retorno é bem sucedido', () => {
 
-  after(async () => {
-    connection.execute.restore();
-  });
-  
-  describe('quando o retorno é bom sucedido', () => {
+    before(async () => {
+      const execute = [payloadProducts];
+      sinon.stub(connection, 'execute').resolves(execute);
+    });
+
+    after(async () => {
+      connection.execute.restore();
+    });
 
     it('retorna um array', async () => {
       const response = await models.product.getAllProducts();
