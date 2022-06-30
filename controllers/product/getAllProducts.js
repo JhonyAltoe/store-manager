@@ -6,7 +6,8 @@ const getAllProducts = async (_req, res) => {
 
     res.status(200).json(allProducts);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // console.log(error);
+    return res.status(500).json({ message: error.message });
   }
 };
 

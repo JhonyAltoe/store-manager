@@ -50,33 +50,30 @@ describe('Testa a função getAllProducts da camada controllers', () => {
 
   });
 
-  // describe('quando o retorno é mal sucedido', () => {
-  //   const res = {};
-  //   const req = {};
+  describe('quando o retorno é mal sucedido', () => {
+    const res = {};
+    const req = {};
 
-  //   before(async () => {
-  //     const error = new Error({ message: 'Erro de teste!' });
-  //     req.body = {};
+    const error = { message: "Table 'StoreManager.product' doesn't exist", status: 500 };
 
-  //     res.status = sinon.stub().returns(res);
-  //     res.json = sinon.stub().returns();
+    before(async () => {
+      req.body = {};
 
-  //     sinon.stub(services.product, 'getAllProducts').resolves(error);
-  //   });
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
 
-  //   after(async () => {
-  //     services.product.getAllProducts.restore();
-  //   });
+      sinon.stub(services.product, 'getAllProducts').throws(error);
+    });
 
-  //   it('verifica se o erro é capturado', async () => {
-  //     try {
-  //       await controllers.product.getAllProducts();
+    after(async () => {
+      services.product.getAllProducts.restore();
+    });
 
-  //       expect(res.status.calledWith(200)).to.be.equal(false);
-  //       expect(res.json.calledWith(payloadProducts)).to.be.equal(false);
-  //     } catch (error) {
-  //       expect(error).to.be.a(true);
-  //     }
-  //   })
-  // });
+    it('verifica se o erro é lançado e capturado corretamente', async () => {
+      await controllers.product.getAllProducts(req, res);
+
+      expect(res.json.calledWith({ message: error.message })).to.be.equal(true);
+      expect(res.status.calledWith(error.status)).to.be.equal(true);
+    })
+  });
 });
