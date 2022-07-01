@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const models = require('../../../../models');
-const services = require('../../../../services');
+const models = require('../../../models');
+const services = require('../../../services');
 
 describe('Testa a função getProductById da camada service', () => {
 
@@ -42,10 +42,10 @@ describe('Testa a função getProductById da camada service', () => {
 
     it('espera retornar um erro com a menssagem "Product not found"', async () => {
       try {
-        const error = await services.product.getProductById();
-        expect(error).to.be('undefined');
+        await services.product.getProductById();
       } catch (err) {
         expect(err.message).to.be.equal('Product not found');
+        expect(err.statusCode).to.be.equal(404);
       };
     });
   });

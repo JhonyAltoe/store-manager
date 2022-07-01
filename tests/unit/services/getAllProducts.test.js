@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const models = require('../../../../models');
-const services = require('../../../../services');
+const models = require('../../../models');
+const services = require('../../../services');
 
 describe('Testa a função getAllProducts da camada service', () => {
   const payloadProducts = [

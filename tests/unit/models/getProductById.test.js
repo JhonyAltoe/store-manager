@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const { connection } = require('../../../../helpers');
-const models = require('../../../../models');
+const { connection } = require('../../../helpers');
+const models = require('../../../models');
 
 describe('Testa a função getProductById da camada models', () => {
   const paydoadProduct = {

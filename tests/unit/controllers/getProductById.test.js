@@ -1,9 +1,9 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const { newErrorCreator } = require('../../../../helpers');
+const { newErrorCreator } = require('../../../helpers');
 
-const services = require('../../../../services');
-const controllers = require('../../../../controllers');
+const services = require('../../../services');
+const controllers = require('../../../controllers');
 
 describe('Testa a função getProductById da camada controllers', () => {
   const payloadProducts = {
