@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const { connection } = require('../../../helpers');
 const models = require('../../../models');
 
-describe('Testa a função getAllProducts da camada models', () => {
+describe('Testa a função "getAllProducts" da camada models', () => {
   const payloadProducts = [
     {
       "id": 1,
