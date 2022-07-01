@@ -10,8 +10,8 @@ describe('Testa a função getProductById da camada service', () => {
     const ID_FROM_USER = 2
     const paydoadProduct = [
       {
-      id: 2,
-      name: 'Traje de encolhimento',
+        id: 2,
+        name: 'Traje de encolhimento',
       },
     ];
 
@@ -42,7 +42,8 @@ describe('Testa a função getProductById da camada service', () => {
 
     it('espera retornar um erro com a menssagem "Product not found"', async () => {
       try {
-        await services.product.getProductById();
+        const error = await services.product.getProductById();
+        expect(error).to.be('undefined');
       } catch (err) {
         expect(err.message).to.be.equal('Product not found');
       };

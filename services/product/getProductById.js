@@ -1,9 +1,9 @@
 const models = require('../../models');
-const { newErrorCreator, httpStatusCode } = require('../../helpers');
+const { httpStatusCode, NewError } = require('../../helpers');
 
 const getProductById = async (id) => {
   const product = await models.product.getProductById(id);
-  if (product.length === 0) throw newErrorCreator('Product not found', httpStatusCode.NOT_FOUND);
+  if (product.length === 0) throw new NewError('Product not found', httpStatusCode.NOT_FOUND);
 
   return product[0];
 };
