@@ -1,11 +1,7 @@
 const { httpStatusCode } = require('../helpers');
 
-const errorMiddleware = (err, req, res, _next) => {
-  if (err.status) {
-    return res.status(err.status).json({ message: err.message });
-  }
+const errorHandle = (err, _req, res, _next) => (
+  res.status(err.statusCode || httpStatusCode.INTERNAL_SERVER).json({ message: err.message })
+);
 
-  return res.status(httpStatusCode.INTERNAL_SERVER).json({ message: err.message });
-};
-
-module.exports = errorMiddleware;
+module.exports = errorHandle;

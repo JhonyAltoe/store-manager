@@ -30,7 +30,7 @@ describe('Testa a função getProductById da camada service', () => {
   });
 
   describe('quando o retorno é mal sucedido', () => {
-    const paydoadProduct = {};
+    const paydoadProduct = [];
 
     before(async () => {
       sinon.stub(models.product, 'getProductById').resolves(paydoadProduct);
@@ -41,7 +41,7 @@ describe('Testa a função getProductById da camada service', () => {
     });
 
     it('espera lançar um erro', () => {
-      expect(async () => await services.product.getProductById()).to.throws();
+      expect(async () => await services.product.getProductById()).to.throw();
     });
 
   });
