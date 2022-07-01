@@ -3,29 +3,29 @@ const { expect } = require('chai');
 
 const models = require('../../../../models');
 const services = require('../../../../services');
-const { product } = require('../../../../models');
 
 describe('Testa a função getProductById da camada service', () => {
 
   describe('quando o retorno é bem sucedido', () => {
-    // const ID_FROM_USER = 2
-    const paydoadProduct = {
+    const ID_FROM_USER = 2
+    const paydoadProduct = [
+      {
       id: 2,
       name: 'Traje de encolhimento',
-    };
+      },
+    ];
 
     before(async () => {
-      const PRODUCT = paydoadProduct;
-      sinon.stub(models.product, 'getProductById').resolves(PRODUCT);
+      sinon.stub(models.product, 'getProductById').resolves(paydoadProduct);
     });
 
     after(async () => {
       models.product.getProductById.restore();
     });
 
-    it('recebe um array', async () => {
-      const response = await services.product.getProductById();
-      expect(response).to.deep.equal(paydoadProduct);
+    it('recebe um objeto com "id" e "name" do produto', async () => {
+      const response = await services.product.getProductById(ID_FROM_USER);
+      expect(response).to.deep.equal(paydoadProduct[0]);
     });
   });
 
@@ -40,9 +40,12 @@ describe('Testa a função getProductById da camada service', () => {
       models.product.getProductById.restore();
     });
 
-    it('espera lançar um erro', () => {
-      expect(async () => await services.product.getProductById()).to.throw();
+    it('espera retornar um erro com a menssagem "Product not found"', async () => {
+      try {
+        await services.product.getProductById();
+      } catch (err) {
+        expect(err.message).to.be.equal('Product not found');
+      };
     });
-
   });
 });
