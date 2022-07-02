@@ -5,7 +5,7 @@ const { newErrorCreator } = require('../../../helpers');
 const services = require('../../../services');
 const controllers = require('../../../controllers');
 
-describe('Testa a função getProductById da camada controllers', () => {
+describe('Testa a função "getProductById" da camada controllers', () => {
   const payloadProducts = {
       id: 2,
       name: 'Traje de encolhimento',

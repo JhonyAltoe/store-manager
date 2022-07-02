@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const services = require('../../../services');
 const controllers = require('../../../controllers');
 
-describe('Testa a função getAllProducts da camada controllers', () => {
+describe('Testa a função "getAllProducts" da camada controllers', () => {
   const payloadProducts = [
     {
       "id": 1,
