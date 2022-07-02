@@ -5,32 +5,32 @@ const { connection } = require('../../../helpers');
 const models = require('../../../models');
 
 describe('Testa a função "registerProduct" da camada models', () => {
-  const paydoadResult = [
+  const PAYLOAD_RESULT = [
     {
       insertId: 4,
     }
   ];
 
-  const paydoadProductResponse = {
+  const PAYLOAD_PRODUCT_RESPONSE = {
     name: 'ProdutoX',
     id: 4,
   };
 
-  const product = { name: 'ProdutoX' };
+  const PRODUCT = { name: 'ProdutoX' };
 
   describe('em caso de sucesso', () => {
 
     before(async () => {
-      sinon.stub(connection, 'execute').resolves(paydoadResult);
+      sinon.stub(connection, 'execute').resolves(PAYLOAD_RESULT);
     });
 
     after(async () => {
       connection.execute.restore();
     });
 
-    it('deve retornar o objeto cadastrado', async () => {
-      const response = await models.product.registerProduct(product);
-      expect(response).to.deep.equal(paydoadProductResponse);
+    it('deve retornar o produto cadastrado', async () => {
+      const response = await models.product.registerProduct(PRODUCT);
+      expect(response).to.deep.equal(PAYLOAD_PRODUCT_RESPONSE);
     });
   });
 });

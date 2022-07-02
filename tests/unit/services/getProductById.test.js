@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const models = require('../../../models');
 const services = require('../../../services');
 
-describe('Testa a função getProductById da camada service', () => {
+describe('Testa a função "getProductById" da camada service', () => {
 
   describe('quando o retorno é bem sucedido', () => {
     const ID_FROM_USER = 2

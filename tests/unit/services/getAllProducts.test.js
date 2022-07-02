@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const models = require('../../../models');
 const services = require('../../../services');
 
-describe('Testa a função getAllProducts da camada service', () => {
+describe('Testa a função "getAllProducts" da camada service', () => {
   const payloadProducts = [
     {
       "id": 1,
