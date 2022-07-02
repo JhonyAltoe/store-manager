@@ -26,5 +26,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "4bce9098-26f9-45a2-aedc-d60757d4de1f",
+    "colId": "ab34ccd8-0405-4a2e-865a-9c7d0d41858a",
+    "containerId": "",
+    "name": "registerProduct",
+    "url": "http://localhost:3000/products/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-07-02T01:52:05.474Z",
+    "modified": "2022-07-02T01:52:34.633Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\n    \"name\": \"ProdutoX\"\n  }",
+      "form": []
+    },
+    "tests": []
   }
 ]
