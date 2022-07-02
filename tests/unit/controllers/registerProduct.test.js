@@ -69,7 +69,7 @@ describe('Testa a função "registerProduct" da camada controllers', () => {
       services.product.registerProduct.restore();
     });
 
-    it('verifica se o erro é lançado e capturado corretamente', async () => {
+    it('verifica se o erro é lançado e capturado corretamente pelo next', async () => {
       await controllers.product.registerProduct(req, res, next);
 
       expect(next.calledWith(error)).to.be.equal(true);

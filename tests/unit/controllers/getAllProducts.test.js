@@ -1,5 +1,6 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
+const { newErrorCreator } = require('../../../helpers');
 
 const services = require('../../../services');
 const controllers = require('../../../controllers');
@@ -53,8 +54,9 @@ describe('Testa a função "getAllProducts" da camada controllers', () => {
   describe('quando o retorno é mal sucedido', () => {
     const res = {};
     const req = {};
+    const next = sinon.spy();
 
-    const error = { message: "Table 'StoreManager.product' doesn't exist", status: 500 };
+    const error = newErrorCreator("Table 'StoreManager.product' doesn't exist", 500);
 
     before(async () => {
       req.body = {};
@@ -69,11 +71,10 @@ describe('Testa a função "getAllProducts" da camada controllers', () => {
       services.product.getAllProducts.restore();
     });
 
-    it('verifica se o erro é lançado e capturado corretamente', async () => {
-      await controllers.product.getAllProducts(req, res);
+    it('verifica se o erro é lançado e capturado corretamente pelo next', async () => {
+      await controllers.product.getAllProducts(req, res, next);
 
-      expect(res.json.calledWith({ message: error.message })).to.be.equal(true);
-      expect(res.status.calledWith(error.status)).to.be.equal(true);
+      expect(next.calledWith(error)).to.be.equal(true);
     })
   });
 });

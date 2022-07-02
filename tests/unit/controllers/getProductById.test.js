@@ -64,7 +64,7 @@ describe('Testa a função "getProductById" da camada controllers', () => {
       services.product.getProductById.restore();
     });
 
-    it('verifica se o erro é lançado e capturado corretamente', async () => {
+    it('verifica se o erro é lançado e capturado corretamente pelo next', async () => {
       await controllers.product.getProductById(req, res, next);
 
       expect(next.calledWith(error)).to.be.equal(true);
