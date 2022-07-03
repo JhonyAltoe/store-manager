@@ -32,9 +32,16 @@ describe('Testa a função "registerSales" da camada models', () => {
         }
       ]
     };
+
+    const PAYLOAD_SALE = [
+      sale = {
+        insertId: 3,
+      },
+    ]; 
     
     before(async () => {
-      sinon.stub(connection, 'execute').resolves(PAYLOAD_RETURN);
+      sinon.stub(connection, 'execute').resolves(PAYLOAD_SALE);
+      sinon.stub(connection, 'query').resolves();
     });
 
     after(async () => {
@@ -42,11 +49,11 @@ describe('Testa a função "registerSales" da camada models', () => {
     });
 
     it('a função "registerSales" da camada models deve existir', () => {
-      expect(typeof models.product.registerSales).to.be.a('function');
+      expect(models.sales.registerSales).to.be.a('function');
     });
 
     it('deve retornar receber os produtos e retornar o mesmo no formado correto', async () => {
-      const response = await models.product.registerSales(PAYLOAD_RECEIVED);
+      const response = await models.sales.registerSales(PAYLOAD_RECEIVED);
       expect(response).to.deep.equal(PAYLOAD_RETURN);
     });
   });
