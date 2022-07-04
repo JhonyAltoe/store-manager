@@ -53,8 +53,8 @@ describe('Testa a função "registerProduct" da camada service', () => {
 
     it('retorn um erro quando o produto vem vazio com a menssagem \'"name" length must be at least 5 characters long\' e código 422', async () => {
       try {
-        const response = await services.product.registerProduct(PRODUCT_LENGTH_4);
-        expect(response).to.be(null);
+        await services.product.registerProduct(PRODUCT_LENGTH_4);
+        expect.fail('a função deve lançar uma erro');
       } catch (err) {
         expect(err.message).to.be.equal('"name" length must be at least 5 characters long');
         expect(err.statusCode).to.be.equal(422);

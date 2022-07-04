@@ -43,7 +43,7 @@ describe('Testa a função "getProductById" da camada service', () => {
     it('quando recebe array vazio retorna um erro com a menssagem "Product not found"', async () => {
       try {
         await services.product.getProductById();
-        expect(1).to.be.equal(0);
+        expect.fail('a função deve lançar uma erro');
       } catch (err) {
         expect(err.message).to.be.equal('Product not found');
         expect(err.statusCode).to.be.equal(404);
