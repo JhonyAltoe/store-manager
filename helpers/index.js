@@ -1,14 +1,14 @@
 const connection = require('./connection');
 const httpStatusCode = require('./httpStatusCode');
-const { newErrorCreator, NewError } = require('./newErrorCreator');
-const { registerProductSchema } = require('./joi');
+const NewError = require('./newErrorCreator');
+const { registerProductSchema, registerSalesSchema } = require('./joi');
 
 module.exports = {
   connection,
   httpStatusCode,
-  newErrorCreator,
   NewError,
   Joi: {
     registerProductSchema,
+    registerSalesSchema,
   },
 };

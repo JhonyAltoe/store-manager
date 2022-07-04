@@ -1,6 +1,6 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const { newErrorCreator } = require('../../../helpers');
+const { NewError } = require('../../../helpers');
 
 const services = require('../../../services');
 const controllers = require('../../../controllers');
@@ -52,7 +52,7 @@ describe('Testa a função "registerProduct" da camada controllers', () => {
     const req = {};
     const next = sinon.spy();
 
-    const error = newErrorCreator('Erro de teste!', 500);
+    const error = new NewError('Erro de teste!', 500);
 
     before(async () => {
       req.body = {

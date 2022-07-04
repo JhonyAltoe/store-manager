@@ -5,9 +5,4 @@ class NewError extends Error {
   }
 }
 
-const newErrorCreator = (message, status) => new NewError(message, status);
-
-module.exports = {
-  newErrorCreator,
-  NewError,
-};
+module.exports = NewError;

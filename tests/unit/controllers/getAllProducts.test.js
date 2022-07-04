@@ -1,6 +1,6 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const { newErrorCreator } = require('../../../helpers');
+const { NewError } = require('../../../helpers');
 
 const services = require('../../../services');
 const controllers = require('../../../controllers');
@@ -56,7 +56,7 @@ describe('Testa a função "getAllProducts" da camada controllers', () => {
     const req = {};
     const next = sinon.spy();
 
-    const error = newErrorCreator("Table 'StoreManager.product' doesn't exist", 500);
+    const error = new NewError("Table 'StoreManager.product' doesn't exist", 500);
 
     before(async () => {
       req.body = {};

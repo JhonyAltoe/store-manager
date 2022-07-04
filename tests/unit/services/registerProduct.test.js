@@ -60,14 +60,5 @@ describe('Testa a função "registerProduct" da camada service', () => {
         expect(err.statusCode).to.be.equal(422);
       }
     });
-
-    it('deve retornar um erro com a mensagem \'"productId" is required\' e código 400 se receber um produto vazio', async () => {
-      try {
-        await services.product.registerProduct([]);
-      } catch (err) {
-        expect(err.message).to.be.equal('"productId" is required');
-        expect(err.statusCode).to.be.equal(400);
-      }
-    });
   });
 });
