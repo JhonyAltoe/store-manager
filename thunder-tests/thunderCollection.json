@@ -4,6 +4,21 @@
     "colName": "project store manager",
     "created": "2022-06-29T22:45:00.985Z",
     "sortNum": 10000,
-    "folders": []
+    "folders": [
+      {
+        "_id": "75e2735d-791e-4ad9-bf39-a33418eadc2a",
+        "name": "product",
+        "containerId": "",
+        "created": "2022-07-04T15:01:20.579Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "a1ceaff9-dbcd-496b-96f4-47261668ba13",
+        "name": "sales",
+        "containerId": "",
+        "created": "2022-07-04T15:01:45.589Z",
+        "sortNum": 20000
+      }
+    ]
   }
 ]

@@ -23,7 +23,7 @@ describe('Testa a função "registerSales" da camada service', () => {
       models.sales.registerSales.restore();
     });
 
-    it('recebe as vendas e deve retornar um objeto com as keys ID e itemsSold o array de vendas', async () => {
+    it('deve retornar um objeto com as keys ID e itemsSold com o array das vendas', async () => {
       const response = await services.sales.registerSales(PAYLOAD_RECEIVED_SALES);
       expect(response).to.deep.equal(PAYLOAD_RETURN_SALES);
     });
