@@ -7,6 +7,8 @@ const {
 const {
   registerSales,
   getProductsByIds,
+  getAllSales,
+  getSaleById,
 } = require('./sales');
 
 module.exports = {
@@ -14,10 +16,11 @@ module.exports = {
     getAllProducts,
     getProductById,
     registerProduct,
-    
   },
   sales: {
     registerSales,
     getProductsByIds,
+    getAllSales,
+    getSaleById,
   },
 };

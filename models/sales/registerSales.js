@@ -9,9 +9,8 @@ const registerSales = async (product) => {
     { encoding: 'utf-8' },
   ).toString();
 
-  product.forEach(async ({ productId, quantity }) => {
-    await connection.query(QUERY, [sale.insertId, productId, quantity]);
-  });
+  await Promise.all(product.map(({ productId, quantity }) =>
+    connection.query(QUERY, [sale.insertId, productId, quantity])));
 
   const result = {
     id: sale.insertId,
