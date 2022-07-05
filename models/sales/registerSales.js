@@ -2,13 +2,11 @@ const fs = require('fs');
 const { connection } = require('../../helpers');
 
 const registerSales = async (product) => {
-  const [sale] = await connection.execute('INSERT INTO sales (date) VALUES (now());');
+  const [sale] = await connection.execute('INSERT INTO StoreManager.sales (date) VALUES (now());');
 
   const QUERY = fs.readFileSync(
-
     './helpers/scripts/salesInsert.sql',
     { encoding: 'utf-8' },
-  
   ).toString();
 
   product.forEach(async ({ productId, quantity }) => {

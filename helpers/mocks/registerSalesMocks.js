@@ -56,10 +56,22 @@ const PAYLOAD_QUANTITY_ZERO = [
   },
 ];
 
+const PL_SALES_WRONG_PRODUCT_ID = [
+  {
+    productId: 1,
+    quantity: 1,
+  },
+  {
+    productId: 4,
+    quantity: 5,
+  },
+];
+
 module.exports = {
   PAYLOAD_RECEIVED_SALES,
   PAYLOAD_RETURN_SALES,
   PAYLOAD_WITHOUT_PRODUCT_ID,
   PAYLOAD_WITHOUT_QUANTITY,
   PAYLOAD_QUANTITY_ZERO,
+  PL_SALES_WRONG_PRODUCT_ID,
 };

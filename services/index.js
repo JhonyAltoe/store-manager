@@ -6,6 +6,7 @@ const {
 
 const {
   registerSales,
+  handleCheckerIds,
 } = require('./sales');
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
   },
   sales: {
     registerSales,
+    handleCheckerIds,
   },
 };

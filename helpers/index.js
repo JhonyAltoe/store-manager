@@ -8,6 +8,7 @@ const {
   PAYLOAD_WITHOUT_PRODUCT_ID,
   PAYLOAD_WITHOUT_QUANTITY,
   PAYLOAD_QUANTITY_ZERO,
+  PL_SALES_WRONG_PRODUCT_ID,
 } = require('./mocks');
 
 module.exports = {
@@ -25,6 +26,7 @@ module.exports = {
       PAYLOAD_WITHOUT_PRODUCT_ID,
       PAYLOAD_WITHOUT_QUANTITY,
       PAYLOAD_QUANTITY_ZERO,
+      PL_SALES_WRONG_PRODUCT_ID,
     },
   },
 };

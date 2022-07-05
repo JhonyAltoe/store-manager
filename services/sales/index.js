@@ -1,5 +1,6 @@
-const registerSales = require('./registerSales');
+const { registerSales, handleCheckerIds } = require('./registerSales');
 
 module.exports = {
   registerSales,
+  handleCheckerIds,
 };
