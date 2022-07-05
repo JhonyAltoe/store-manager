@@ -15,7 +15,7 @@ const handleCheckerIds = async (products) => {
   const ids = products.map(({ productId }) => productId);
   const foundIds = await models.sales.getProductsByIds(ids);
 
-  if (ids.length < foundIds.length) {
+  if (ids.length !== foundIds.length) {
     throw new NewError('Product not found', httpStatusCode.NOT_FOUND);
   }
 };

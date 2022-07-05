@@ -62,7 +62,7 @@ const PL_SALES_WRONG_PRODUCT_ID = [
     quantity: 1,
   },
   {
-    productId: 4,
+    productId: 9999,
     quantity: 5,
   },
 ];
