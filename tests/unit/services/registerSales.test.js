@@ -76,7 +76,7 @@ describe('Testa a função "registerSales" da camada service', () => {
   //     sinon.stub(models.sales, 'registerSales').resolves();
 
   //     try {
-  //       await services.sales.registerSales();
+  //       await services.sales.registerSales(PL_SALES_WRONG_PRODUCT_ID);
   //       expect.fail('A função "registerSales" deve lançar um erro!');
   //     } catch (err) {
   //       expect(err.message).to.be.equal('sales not found');
