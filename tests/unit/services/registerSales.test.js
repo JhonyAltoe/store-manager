@@ -12,10 +12,13 @@ const {
   PAYLOAD_WITHOUT_QUANTITY,
   PAYLOAD_QUANTITY_ZERO,
   // PL_SALES_WRONG_PRODUCT_ID
-} = mocks.registerSales;
+} = mocks;
 
 describe('Testa a função "registerSales" da camada service', () => {
-  beforeEach(sinon.restore);
+  afterEach(async () => {
+    models.sales.registerSales.restore();
+    services.sales.handleCheckerIds.restore();
+  });
 
   describe('Quando o retorno é bem sucedido', () => {
     it('deve retornar um objeto com as keys ID e itemsSold com o array das vendas', async () => {

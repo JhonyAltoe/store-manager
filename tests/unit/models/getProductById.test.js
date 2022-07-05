@@ -24,7 +24,7 @@ describe('Testa a função "getProductById" da camada models', () => {
 
     it('deve retornar um objeto', async () => {
       const response = await models.product.getProductById(ID);
-      expect(response).to.be.a('object');
+      expect(response).to.be.an('object');
     });
 
     it('deve retornar um objeto com "id" e "name" do produto', async () => {

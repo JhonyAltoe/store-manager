@@ -6,7 +6,7 @@ const services = require('../../../services');
 const controllers = require('../../../controllers');
 const { mocks } = require('../../../helpers');
 
-const { PAYLOAD_RECEIVED_SALES, PAYLOAD_RETURN_SALES } = mocks.registerSales;
+const { PAYLOAD_RECEIVED_SALES, PAYLOAD_RETURN_SALES } = mocks;
 
 describe('Testa a função "registerSales" da camada controllers', () => {
 
