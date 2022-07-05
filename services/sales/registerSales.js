@@ -25,7 +25,7 @@ const registerSales = async (products) => {
 
   if (error) handlerError(error);
 
-  handleCheckerIds(products);
+  await handleCheckerIds(products);
 
   const result = await models.sales.registerSales(products);
   return result;
