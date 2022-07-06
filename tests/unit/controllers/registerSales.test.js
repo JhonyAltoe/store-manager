@@ -11,7 +11,11 @@ const { PAYLOAD_RECEIVED_SALES, PAYLOAD_RETURN_SALES } = mocks;
 describe('Testa a função "registerSales" da camada controllers', () => {
 
   describe('quando o retorno é bem sucedido', () => {
-    const res = {};
+    const res = {
+      json: (param) => param,
+      status: () => ({ json: (param) => param, send: () => null }),
+    };
+
     const req = {};
 
     before(async () => {
@@ -44,7 +48,11 @@ describe('Testa a função "registerSales" da camada controllers', () => {
   });
 
   describe('quando o retorno é mal sucedido', () => {
-    const res = {};
+    const res = {
+      json: (param) => param,
+      status: () => ({ json: (param) => param, send: () => null }),
+    };
+
     const req = {};
     const next = sinon.spy();
 

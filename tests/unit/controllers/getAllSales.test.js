@@ -14,7 +14,11 @@ describe('Testa a função "getAllSales" da camada controllers', () => {
   });
 
   describe('quando o retorno é mal sucedido', () => {
-    const res = {};
+    const res = {
+      json: (param) => param,
+      status: () => ({ json: (param) => param, send: () => null }),
+    };
+
     const req = {};
     const next = sinon.spy();
 
@@ -37,7 +41,11 @@ describe('Testa a função "getAllSales" da camada controllers', () => {
   });
 
   describe('quando o retorno é bem sucedido', () => {
-    const res = {};
+    const res = {
+      json: (param) => param,
+      status: () => ({ json: (param) => param, send: () => null }),
+    };
+
     const req = {};
     const next = sinon.spy();
 

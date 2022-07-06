@@ -8,7 +8,11 @@ const controllers = require('../../../controllers');
 describe('Testa a função "registerProduct" da camada controllers', () => {
 
   describe('quando o retorno é bem sucedido', () => {
-    const res = {};
+    const res = {
+      json: (param) => param,
+      status: () => ({ json: (param) => param, send: () => null }),
+    };
+
     const req = {};
 
     const PAYLOAD_PRODUCT_RESPONSE = {
@@ -48,7 +52,11 @@ describe('Testa a função "registerProduct" da camada controllers', () => {
   });
 
   describe('quando o retorno é mal sucedido', () => {
-    const res = {};
+    const res = {
+      json: (param) => param,
+      status: () => ({ json: (param) => param, send: () => null }),
+    };
+
     const req = {};
     const next = sinon.spy();
 

@@ -43,7 +43,11 @@ describe('Testa a função "getProductById" da camada controllers', () => {
   });
 
   describe('quando o retorno é mal sucedido', () => {
-    const res = {};
+    const res = {
+      json: (param) => param,
+      status: () => ({ json: (param) => param, send: () => null }),
+    };
+
     const req = {
       params: 2,
     };
