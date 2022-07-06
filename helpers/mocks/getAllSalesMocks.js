@@ -19,6 +19,20 @@ const PAYLOAD_ALL_SALES = [
   },
 ];
 
+const PAYLOAD_SALES_BY_ID = [
+  {
+    date: '2022-07-05T23:19:32.000Z',
+    productId: 1,
+    quantity: 5,
+  },
+  {
+    date: '2022-07-05T23:19:32.000Z',
+    productId: 2,
+    quantity: 10,
+  },
+];
+
 module.exports = {
   PAYLOAD_ALL_SALES,
+  PAYLOAD_SALES_BY_ID,
 };

@@ -39,6 +39,7 @@ describe('Testa a função "getAllSales" da camada controllers', () => {
   describe('quando o retorno é bem sucedido', () => {
     const res = {};
     const req = {};
+    const next = sinon.spy();
 
     before(async () => {
       req.body = {};
@@ -49,17 +50,17 @@ describe('Testa a função "getAllSales" da camada controllers', () => {
       sinon.stub(services.sales, 'getAllSales').resolves(PAYLOAD_ALL_SALES);
     });
 
-    it('testa se "getAllSales" é uma função', () => {
-      expect(controllers.sales.getAllSales).to.be.a('function');
-    });
+    // it('testa se "getAllSales" é uma função', () => {
+    //   expect(controllers.sales.getAllSales).to.be.a('function');
+    // });
 
     it('é chamado o status com o códico 200', async () => {
-      await controllers.sales.getAllSales(req, res);
+      await controllers.sales.getAllSales(req, res, next);
       expect(res.status.calledWith(200)).to.be.equal(true);
     });
-
+    
     it('deve retornar um array com as vendas', async () => {
-      await controllers.sales.getAllSales(req, res);
+      await controllers.sales.getAllSales(req, res, next);
       expect(res.json.calledWith(PAYLOAD_ALL_SALES)).to.be.equal(true);
     });
   });

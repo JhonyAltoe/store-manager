@@ -8,6 +8,7 @@ const {
 } = require('./registerSalesMocks');
 const {
   PAYLOAD_ALL_SALES,
+  PAYLOAD_SALES_BY_ID,
 } = require('./getAllSalesMocks');
 
 module.exports = {
@@ -18,4 +19,5 @@ module.exports = {
   PAYLOAD_WITHOUT_QUANTITY,
   PL_SALES_WRONG_PRODUCT_ID,
   PAYLOAD_ALL_SALES,
+  PAYLOAD_SALES_BY_ID,
 };
